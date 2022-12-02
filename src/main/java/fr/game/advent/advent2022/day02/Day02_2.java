@@ -23,7 +23,7 @@ public class Day02_2 {
 		Integer points = 0;
 		try {
 			FileInputStream source = new FileInputStream(
-					"C:\\INSEE\\WS\\Advent-of-code\\advent-of-code\\src\\main\\resources\\fr\\game\\advent\\day02\\input02-1.txt");
+					"C:\\INSEE\\WS\\Advent-of-code\\advent-of-code\\src\\main\\resources\\fr\\game\\advent\\advent2022\\day02\\input02-1.txt");
 			Scanner scanner = new Scanner(source);
 			while (scanner.hasNextLine()) {
 

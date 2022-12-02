@@ -13,7 +13,7 @@ public class Day01_2 {
 				Integer sommeTemp = 0;
 		try {
 			FileInputStream source = new FileInputStream(
-					"C:\\INSEE\\WS\\Advent-of-code\\advent-of-code\\src\\main\\resources\\fr\\game\\advent\\day01\\input01-1.txt");
+					"C:\\INSEE\\WS\\Advent-of-code\\advent-of-code\\src\\main\\resources\\fr\\game\\advent\\advent2022\\day01\\input01-1.txt");
 			Scanner scanner = new Scanner(source);
 			while (scanner.hasNextLine()) {
 
