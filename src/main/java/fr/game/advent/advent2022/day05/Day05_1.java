@@ -7,29 +7,29 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Day05_1 {
-	static ArrayList<ArrayList<String>> listePiles = new ArrayList<ArrayList<String>>();
-	static ArrayList<String> pile1 = new ArrayList<String>();
-	static ArrayList<String> pile2 = new ArrayList<String>();
-	static ArrayList<String> pile3 = new ArrayList<String>();
-	static ArrayList<String> pile4 = new ArrayList<String>();
-	static ArrayList<String> pile5 = new ArrayList<String>();
-	static ArrayList<String> pile6 = new ArrayList<String>();
-	static ArrayList<String> pile7 = new ArrayList<String>();
-	static ArrayList<String> pile8 = new ArrayList<String>();
-	static ArrayList<String> pile9 = new ArrayList<String>();
+	static ArrayList<ArrayList<String>> LISTE_PILES = new ArrayList<ArrayList<String>>();
+	static ArrayList<String> PILE_1 = new ArrayList<String>();
+	static ArrayList<String> PILE_2 = new ArrayList<String>();
+	static ArrayList<String> PILE_3 = new ArrayList<String>();
+	static ArrayList<String> PILE_4 = new ArrayList<String>();
+	static ArrayList<String> PILE_5 = new ArrayList<String>();
+	static ArrayList<String> PILE_6 = new ArrayList<String>();
+	static ArrayList<String> PILE_7 = new ArrayList<String>();
+	static ArrayList<String> PILE_8 = new ArrayList<String>();
+	static ArrayList<String> PILE_9 = new ArrayList<String>();
 
 	public static void main(String[] args) throws IOException {
 		try {
 
-			listePiles.add(pile1);
-			listePiles.add(pile2);
-			listePiles.add(pile3);
-			listePiles.add(pile4);
-			listePiles.add(pile5);
-			listePiles.add(pile6);
-			listePiles.add(pile7);
-			listePiles.add(pile8);
-			listePiles.add(pile9);
+			LISTE_PILES.add(PILE_1);
+			LISTE_PILES.add(PILE_2);
+			LISTE_PILES.add(PILE_3);
+			LISTE_PILES.add(PILE_4);
+			LISTE_PILES.add(PILE_5);
+			LISTE_PILES.add(PILE_6);
+			LISTE_PILES.add(PILE_7);
+			LISTE_PILES.add(PILE_8);
+			LISTE_PILES.add(PILE_9);
 
 			FileInputStream source = new FileInputStream(
 					"C:\\INSEE\\WS\\Advent-of-code\\advent-of-code\\src\\main\\resources\\fr\\game\\advent\\advent2022\\day05\\input05-1.txt");
@@ -56,10 +56,7 @@ public class Day05_1 {
 					indexCaisseSurLigne++;
 				}
 				pileOrigine = lireIntDansLigne(ligne, indexCaisseSurLigne) - 1;
-//				System.out.println(pileOrigine);
 				pileDestination = lireIntDansLigne(ligne, indexCaisseSurLigne + 5) - 1;
-//				System.out.println(pileDestination);
-//				System.out.println("caisses a deplacer : " + nombreDeCaissesADeplacer);
 
 				while (nombreDeCaissesADeplacer > 0) {
 					deplacerCaisse(pileOrigine, pileDestination);
@@ -118,7 +115,6 @@ public class Day05_1 {
 
 	private static void rangerCaisseDansPile(String ligne) {
 		int numeroPile = 0;
-		String caisse = null;
 		for (int i = 1; i < 35; i += 4) {
 			if (!ligne.substring(i, i + 1).equals(" ")) {
 				chiffreVersNomPile(numeroPile).add(ligne.substring(i, i + 1));
@@ -128,6 +124,6 @@ public class Day05_1 {
 	}
 
 	private static ArrayList<String> chiffreVersNomPile(int numeroPile) {
-		return listePiles.get(numeroPile);
+		return LISTE_PILES.get(numeroPile);
 	}
 }

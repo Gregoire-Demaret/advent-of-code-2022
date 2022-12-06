@@ -22,17 +22,11 @@ public class Day02_1 {
 					"C:\\INSEE\\WS\\Advent-of-code\\advent-of-code\\src\\main\\resources\\fr\\game\\advent\\advent2022\\day02\\input02-1.txt");
 			Scanner scanner = new Scanner(source);
 			while (scanner.hasNextLine()) {
-
 				String contenuLigne = scanner.nextLine();
 				char mainOpposant = contenuLigne.charAt(0);
-				System.out.println(mainOpposant);
 				char mainJoueur = contenuLigne.charAt(2);
-				System.out.println(mainJoueur);
 				points += comparerMains(mainOpposant, mainJoueur);
-				System.out.println(points);
 				points += pointsFormeJouee(mainJoueur);
-				System.out.println(points);
-
 			}
 			scanner.close();
 		} catch (IOException e) {

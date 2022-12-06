@@ -11,7 +11,7 @@ public class Day04_1 {
 	static int ELFE_1_FIN = 0;
 	static int ELFE_2_DEBUT = 0;
 	static int ELFE_2_FIN = 0;
-	static Integer nombreDePairesContenuesDansLautrePaire = 0;
+	static Integer NOMBRE_DE_PAIRES_QUI_RECOUPENT = 0;
 			
 	public static void main(String[] args) throws IOException {
 		try {
@@ -28,7 +28,7 @@ public class Day04_1 {
 				comparerSections();
 
 			}
-			System.out.println(nombreDePairesContenuesDansLautrePaire);
+			System.out.println(NOMBRE_DE_PAIRES_QUI_RECOUPENT);
 			scanner.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -44,7 +44,7 @@ public class Day04_1 {
 		if (ELFE_1_DEBUT <= ELFE_2_DEBUT && ELFE_1_FIN >= ELFE_2_FIN) {
 			i = true;
 		}
-		if (i) nombreDePairesContenuesDansLautrePaire++;
+		if (i) NOMBRE_DE_PAIRES_QUI_RECOUPENT++;
 	}
 
 	private static void decouperSections() {

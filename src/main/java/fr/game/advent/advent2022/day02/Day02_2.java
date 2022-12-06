@@ -30,10 +30,8 @@ public class Day02_2 {
 				String contenuLigne = scanner.nextLine();
 				char mainOpposant = contenuLigne.charAt(0);
 				char mainJoueur = calculerMainAJouer(mainOpposant, contenuLigne.charAt(2));
-				
 				points += comparerMains(mainOpposant, mainJoueur);
 				points += pointsFormeJouee(mainJoueur);
-
 			}
 			scanner.close();
 		} catch (IOException e) {

@@ -10,7 +10,7 @@ public class Day01_2 {
 	static Integer caloriesMax3 = 0;
 
 	public static void main(String[] args) throws IOException {
-				Integer sommeTemp = 0;
+		Integer sommeTemp = 0;
 		try {
 			FileInputStream source = new FileInputStream(
 					"C:\\INSEE\\WS\\Advent-of-code\\advent-of-code\\src\\main\\resources\\fr\\game\\advent\\advent2022\\day01\\input01-1.txt");
@@ -19,8 +19,6 @@ public class Day01_2 {
 
 				String contenuLigne = scanner.nextLine();
 				if (!contenuLigne.isEmpty()) {
-					System.out.println("sommetemp = " + sommeTemp);
-					System.out.println("contenuLigne = " + contenuLigne);
 					sommeTemp += Integer.parseInt(contenuLigne);
 				} else {
 					if (sommeTemp > caloriesMax3) {
