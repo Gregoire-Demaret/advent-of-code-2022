@@ -10,7 +10,7 @@ public class Day08_1 {
 	private static String LIGNE = null;
 	private static List<String> LIGNES = null;
 	private static int NUMERO_LIGNE = 0;
-	private static int[][] GRILLE = new int[99][99];;
+	private static int[][] GRILLE = new int[99][99];
 	private static int NOMBRE_ARBRES_VISIBLES = 99 + 99 + 97 + 97;
 
 	public static void main(String[] args) throws IOException {
