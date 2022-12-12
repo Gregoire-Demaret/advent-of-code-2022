@@ -23,19 +23,14 @@ public class Day12_1 {
 					"C:\\INSEE\\WS\\Advent-of-code\\advent-of-code\\src\\main\\resources\\fr\\game\\advent\\advent2022\\day12\\input12-1.txt");
 
 			remplirGrilles();
-//			afficherGrille();
 
-			//Tant que le point d'arrivée n'a pas été visité on parcourt la grille
+			// Tant que le point d'arrivée n'a pas été visité on parcourt la grille
 			while (!VISITE[75][20] || COMPTEUR < 10000) {
-
-
 				parcourirGrille();
 				COMPTEUR++;
 			}
 
-
 			System.out.println(DISTANCE[77][20]);
-			afficherGrille();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -51,7 +46,6 @@ public class Day12_1 {
 				evaluerPointEst(x, y);
 				evaluerPointOuest(x, y);
 			}
-
 		}
 	}
 
@@ -113,23 +107,6 @@ public class Day12_1 {
 		return VISITE[x][y];
 	}
 
-	private static void afficherGrille() {
-		for (int y = 0; y < 41; y++) {
-			for (int x = 0; x < 100; x++) {						
-				if (DISTANCE[x][y] <10)
-				{
-					System.out.print("--" +DISTANCE[x][y]);
-
-				}else if (DISTANCE[x][y] <100){
-					System.out.print("-" +DISTANCE[x][y]);
-				}else {
-				System.out.print(DISTANCE[x][y]);
-				}
-		
-			}
-			System.out.println();
-		}
-}
 
 	private static void remplirGrilles() {
 		for (int y = 0; y < 41; y++) {

@@ -21,35 +21,36 @@ public class Day12_2 {
 	private static PointDeDepart DEPART_ACTUEL = null;
 	private static List<Integer> RESULTATS = new ArrayList<>();
 
-
 	public static void main(String[] args) throws IOException {
 		try {
 			FichierServices fichierServices = new FichierServices();
 
 			LIGNES = fichierServices.lireFichierTexte(
 					"C:\\INSEE\\WS\\Advent-of-code\\advent-of-code\\src\\main\\resources\\fr\\game\\advent\\advent2022\\day12\\input12-1.txt");
-			
+
 			remplirGrilles();
 			listerPointsDeDepart();
-
-//				afficherGrille();
 
 			while (!LISTE_POINTS_DE_DEPART.isEmpty()) {
 				DEPART_ACTUEL = LISTE_POINTS_DE_DEPART.get(0);
 				remplirGrillesSuivantes(DEPART_ACTUEL.getX(), DEPART_ACTUEL.getY());
 				LISTE_POINTS_DE_DEPART.remove(0);
 				// Tant que le point d'arrivée n'a pas été visité on parcourt la grille
-				while (!VISITE[75][20] || COMPTEUR < 200) {
-
+				while (!VISITE[75][20]) {
 					parcourirGrille();
+					if (VISITE[75][20]) {
+						RESULTATS.add(DISTANCE[77][20]);
+						break;
+					}
+					if (COMPTEUR == 300) {
+						break;
+					}
 					COMPTEUR++;
-					//				System.out.println("passe n° : " + COMPTEUR);
-					
-				} 
-				RESULTATS.add(DISTANCE[77][20]);
+				}
+				COMPTEUR = 0;
+				System.out.println(LISTE_POINTS_DE_DEPART.size());
 			}
-			System.out.println(Collections.max(RESULTATS));
-			afficherGrille();
+			System.out.println(Collections.min(RESULTATS));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -57,7 +58,7 @@ public class Day12_2 {
 
 	private static void listerPointsDeDepart() {
 		for (int y = 0; y < 41; y++) {
-			for (int x = 0; x < 100; x++) {
+			for (int x = 0; x < 101; x++) {
 				if (HAUTEUR_INITIALE[x][y] == 0) {
 					LISTE_POINTS_DE_DEPART.add(new PointDeDepart(x, y));
 				}
@@ -138,26 +139,10 @@ public class Day12_2 {
 		return VISITE[x][y];
 	}
 
-	private static void afficherGrille() {
-		for (int y = 0; y < 41; y++) {
-			for (int x = 0; x < 100; x++) {
-				if (DISTANCE[x][y] < 10) {
-					System.out.print("--" + DISTANCE[x][y]);
-
-				} else if (DISTANCE[x][y] < 100) {
-					System.out.print("-" + DISTANCE[x][y]);
-				} else {
-					System.out.print(DISTANCE[x][y]);
-				}
-
-			}
-			System.out.println();
-		}
-	}
 	private static void remplirGrilles() {
 		for (int y = 0; y < 41; y++) {
 			ligneSuivante();
-			for (int x = 0; x < LIGNE.length() - 1; x++) {
+			for (int x = 0; x < 101; x++) {
 				HAUTEUR_INITIALE[x][y] = LIGNE.charAt(x) - 97;
 				DISTANCE[x][y] = Integer.MAX_VALUE;
 				VISITE[x][y] = false;
@@ -165,10 +150,12 @@ public class Day12_2 {
 		}
 		HAUTEUR_INITIALE[0][20] = 0;
 		HAUTEUR_INITIALE[77][20] = 25;
+
 	}
+
 	private static void remplirGrillesSuivantes(int xDepart, int yDepart) {
 		for (int y = 0; y < 41; y++) {
-			for (int x = 0; x < LIGNE.length() - 1; x++) {
+			for (int x = 0; x < 101; x++) {
 				HAUTEUR[x][y] = HAUTEUR_INITIALE[x][y];
 				DISTANCE[x][y] = Integer.MAX_VALUE;
 				VISITE[x][y] = false;
