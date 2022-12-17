@@ -9,6 +9,7 @@ public class Day15_2 {
 
 	private static String LIGNE = null;
 	private static List<String> LIGNES = null;
+	private static int[] EMPLACEMENTS_BALISE = new int[10000000];
 	private static int NUMERO_LIGNE = 0;
 	private static char[] LIGNE_TEST = new char[10000000];
 	private static Integer X_SENSOR;
@@ -28,6 +29,8 @@ public class Day15_2 {
 			LIGNES = fichierServices.lireFichierTexte(
 					"C:\\INSEE\\WS\\Advent-of-code\\advent-of-code\\src\\main\\resources\\fr\\game\\advent\\advent2022\\day15\\input15-1.txt");
 
+			initialiserEmplacementsBalise();
+
 //				afficherLigne();
 			while (!BALISE_TROUVEE || Y_TEST <= 4000000) {
 				initialiserLigneTest();
@@ -39,8 +42,7 @@ public class Day15_2 {
 					recupererCoordonnees();
 					tracerPositions();
 					chercherBalise();
-					
-					
+
 					Y_TEST++;
 				}
 			}
@@ -51,10 +53,16 @@ public class Day15_2 {
 		}
 	}
 
+	private static void initialiserEmplacementsBalise() {
+		for (int i = 0; i < EMPLACEMENTS_BALISE.length; i++) {
+			EMPLACEMENTS_BALISE[i] = (i + DECALAGE_X) * 4000000 + Y_TEST;
+		}
+	}
+
 	private static void chercherBalise() {
-		for (int i = 0; i<4000000; i++) {
-			if (LIGNE_TEST[i] == '#') {
-				FREQUENCE = (i+DECALAGE_X) * 4000000 + Y_TEST;
+		for (int i = 0; i < 4000000; i++) {
+			if (LIGNE_TEST[i] == '.') {
+				FREQUENCE = (i + DECALAGE_X) * 4000000 + Y_TEST;
 				BALISE_TROUVEE = true;
 			}
 		}
