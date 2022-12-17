@@ -43,8 +43,9 @@ public class Day15_2 {
 					tracerPositions();
 					chercherBalise();
 
-					Y_TEST++;
 				}
+				Y_TEST++;
+
 			}
 			System.out.println(FREQUENCE);
 
